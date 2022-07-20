@@ -15,3 +15,7 @@
     color: red;
     margin: 5% 0;
 }
+.card-body{
+    display: flex;
+    justify-content: space-between;
+}

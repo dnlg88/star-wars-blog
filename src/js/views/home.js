@@ -1,18 +1,19 @@
 import React, {useContext} from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
-import { Card } from "../component/card";
+import { CharacterCard } from "../component/CharacterCard.js"
+import { Card } from "../component/Card.js"
 
 export const Home = () => {
 	const {store, action} = useContext(Context)
-	let [people, planets, vehicles] = [store.characters, store.planets, store.vehicles]
+	let [characters, planets, vehicles] = [store.characters, store.planets, store.vehicles]
 	return(
 		<div className="container">
 			<h1 className="mainChar category">Characters</h1>
 			<div className="scroll">
 				<ul style={{display: "flex"}}>
-					{people.map((element, i) => {
-					return <Card key={i} elementName={element.name} url={element.url} />	
+					{characters.map((element, i) => {
+					return <CharacterCard key={i} elementName={element.name} url={element.url} />	
 				})}
 				</ul>
 			</div>

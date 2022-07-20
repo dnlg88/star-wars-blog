@@ -3,7 +3,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			characters: [],
 			planets: [],
-			vehicles: []
+			vehicles: [],
+			favorites: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -57,6 +58,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().getPlanets();
 				getActions().getVehicles();
 				console.log(getStore())
+			},
+			setFavorite: (name)=>{
+				let aux = [...getStore().favorites]
+				aux.push(name);
+				setStore({favorites: aux});
 			}
 		}
 	};
