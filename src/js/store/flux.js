@@ -1,42 +1,62 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			characters: [],
+			planets: [],
+			vehicles: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
+			getCharacters: ()=>{
+				fetch("https://www.swapi.tech/api/people/")
+				.then(res => {
+					if(res.ok){
+						return res.json()
+					} else {
+						throw new Error("Error cargando los personajes")
+					}
+					})
+				.then(dataChars=>{
+					let chars = dataChars.results;
+					setStore({characters: chars})
+				})
+				.catch(error=>console.log(error))
 			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
+			getPlanets: ()=>{
+				fetch("https://www.swapi.tech/api/planets/")
+				.then(res => {
+					if(res.ok){
+						return res.json()
+					} else {
+						throw new Error("Error cargando los planetas")
+					}
+					})
+				.then(dataPlans=>{
+					let plans = dataPlans.results;
+					setStore({planets: plans})
+				})
+				.catch(error=>console.log(error))
 			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
+			getVehicles: ()=>{
+				fetch("https://www.swapi.tech/api/vehicles/")
+				.then(res => {
+					if(res.ok){
+						return res.json()
+					} else {
+						throw new Error("Error cargando los vehiculos")
+					}
+					})
+				.then(dataVecs=>{
+					let vecs = dataVecs.results;
+					setStore({vehicles: vecs})
+				})
+				.catch(error=>console.log(error))
+			},
+			fetchAll: ()=>{
+				getActions().getCharacters();
+				getActions().getPlanets();
+				getActions().getVehicles();
+				console.log(getStore())
 			}
 		}
 	};

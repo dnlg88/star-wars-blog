@@ -1,0 +1,17 @@
+.scroll {
+    overflow-x: scroll;
+}
+
+.card{
+    flex-shrink: 0;
+    padding: 0 10pxpx;
+}
+
+/* .mainChar{
+    margin-top: 10%;
+} */
+
+.category{
+    color: red;
+    margin: 5% 0;
+}
