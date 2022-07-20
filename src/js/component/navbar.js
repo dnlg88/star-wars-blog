@@ -1,9 +1,10 @@
 import React, {useContext} from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import {FaRegTrashAlt} from 'react-icons/fa'
 
 export const Navbar = () => {
-	const {store,action} = useContext(Context);
+	const {store,actions} = useContext(Context);
 	const favorites = store.favorites
 	return (
 		<nav className="navbar px-2 navbar-expand-mb navbar-dark bg-dark text-warning">
@@ -25,11 +26,15 @@ export const Navbar = () => {
 				</div>
 				</button>
 				<ul className="mt-2 border-2 dropdown-menu dropdown-menu-dark"
-					aria-labelledby="dropdownMenu"
-					> {favorites.map(element =>{
-						<li>{element}</li>
-					})}
+					aria-labelledby="dropdownMenu"> 
 					
+					{favorites.map(element =>{
+						return(<div className="listaFav">
+							<li>{element}</li>
+						<a className="trash" href="#" onClick={()=>actions.deleteFromFavorites(element)}>&nbsp;&nbsp;&nbsp;<FaRegTrashAlt/></a>
+						</div>
+						) 
+					})}
 				</ul>
 			</div>
 

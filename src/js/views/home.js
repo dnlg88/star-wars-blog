@@ -3,6 +3,9 @@ import { Context } from "../store/appContext";
 import "../../styles/home.css";
 import { CharacterCard } from "../component/CharacterCard.js"
 import { Card } from "../component/Card.js"
+import { PlanetCard } from "../component/PlanetCard";
+import { VehicleCard } from "../component/VehicleCard";
+
 
 export const Home = () => {
 	const {store, action} = useContext(Context)
@@ -21,7 +24,7 @@ export const Home = () => {
 			<div className="scroll">	
 			<ul style={{display: "flex"}}>
 				{planets.map((element, i) => {
-					return <Card key={i} elementName={element.name} url={element.url} />	
+					return <PlanetCard key={i} elementName={element.name} url={element.url} />	
 				})}
 			</ul>
 			</div>
@@ -29,7 +32,7 @@ export const Home = () => {
 			<div className="scroll">
 				<ul style={{display: "flex"}}>
 					{vehicles.map((element, i) => {
-					return <Card key={i} elementName={element.name} url={element.url} />	
+					return <VehicleCard key={i} elementName={element.name} url={element.url} />	
 				})}
 				</ul>
 			</div>

@@ -1,3 +1,9 @@
 /* 
     General Styles
 */
+.listaFav{
+   display: flex;
+}
+.trash{
+    text-decoration: none;
+}

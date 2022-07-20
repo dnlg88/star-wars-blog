@@ -63,6 +63,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let aux = [...getStore().favorites]
 				aux.push(name);
 				setStore({favorites: aux});
+				console.log(getStore().favorites)
+			},
+
+			deleteFromFavorites: (name) => {
+				const delFav = getStore().favorites.filter((fav) => fav !== name)
+				setStore({favorites: delFav})
 			}
 		}
 	};
