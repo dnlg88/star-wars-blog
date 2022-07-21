@@ -1,22 +1,21 @@
-import React, {useState, useEffect, useContext} from 'react'
+import React, {useState, useEffect} from 'react'
+import {Link} from "react-router-dom"
 
-import { Context } from '../store/appContext';
 
-export const CharacterCard = ({elementName, url}) => {
-    const [characterInfo, SetCharacterInfo] = useState({})
-    const {store, actions} = useContext(Context)
+export const PlanetCard = ({elementName, url}) => {
+    const [PlanetInfo, SetPlanetInfo] = useState({})
     useEffect(()=>{
-        getCharacterInfo()
+        getPlanetInfo()
     },[])
 
-    const getCharacterInfo = ()=>{
+    const getPlanetInfo = ()=>{
         fetch(url)
         .then(resp => resp.json())
 		.then(data =>{ 
-            SetCharacterInfo(data.result.properties)})
-            console.log(characterInfo)
+            SetPlanetInfo(data.result.properties)})
+            console.log(PlanetInfo)
         }
-        
+
     return (
     <div className="container-flex">
       <div className="container">
@@ -34,24 +33,24 @@ export const CharacterCard = ({elementName, url}) => {
           <div className="row mt-4">
               <div className="d-flex flex-row justify-content-between">
                       <div className="col-sm-2 d-flex danger flex-column">
-                          <div className="text-center text-danger">Height:</div>
-                          <div className="text-center"> {characterInfo.height} cm</div>
+                          <div className="text-center text-danger">Climate:</div>
+                          <div className="text-center"> {PlanetInfo.climate} </div>
                       </div>
                       <div className="col-sm-2 d-flex flex-column">
-                          <div className="text-center text-danger">Mass:</div>
-                          <div className="text-center">{characterInfo.mass} kg</div>
+                          <div className="text-center text-danger">Population:</div>
+                          <div className="text-center">{PlanetInfo.population} hab.</div>
                       </div>
                       <div className="col-sm-2 d-flex flex-column">
-                          <div className="text-center text-danger">Hair color:</div>
-                          <div className="text-center">{characterInfo.hair_color}</div>
+                          <div className="text-center text-danger">Terrain:</div>
+                          <div className="text-center">{PlanetInfo.terrain}</div>
                       </div>
                       <div className="col-sm-2 d-flex flex-column">
-                          <div className="text-center text-danger">Skin color:</div>
-                          <div className="text-center">{characterInfo.skin_color}</div>
+                          <div className="text-center text-danger">Orbital Period</div>
+                          <div className="text-center">{PlanetInfo.orbital_period} days</div>
                       </div>
                       <div className="col-sm-2 d-flex flex-column">
-                          <div className="text-center text-danger">Eye color:</div>
-                          <div className="text-center">{characterInfo.eye_color}</div>
+                          <div className="text-center text-danger">Rotation Period:</div>
+                          <div className="text-center">{PlanetInfo.rotation_period} hours</div>
                       </div>
                </div>
           </div>
