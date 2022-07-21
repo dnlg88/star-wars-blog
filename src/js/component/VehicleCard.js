@@ -1,9 +1,10 @@
-import React, {useState, useEffect} from 'react'
-import {Link} from "react-router-dom"
+import React, {useState, useEffect, useContext} from 'react'
+import { Context } from '../store/appContext';
 import {FaRegHeart} from 'react-icons/fa';
 
 export const VehicleCard = ({elementName, url}) => {
     const [VehicleInfo, SetVehicleInfo] = useState({})
+    const {store, actions} = useContext(Context)
     useEffect(()=>{
         getVehicleInfo()
     },[])
@@ -28,7 +29,7 @@ export const VehicleCard = ({elementName, url}) => {
         </ul>
         <div className="card-body">
           <a href="#" className="btn btn-outline-primary">Learn more!</a>
-          <a href="#" className="btn btn-outline-warning" onClick={()=>setFavorite(elementName)}> <FaRegHeart/> </a>
+          <a href="#" className="btn btn-outline-warning" onClick={()=>actions.setFavorite(elementName)}> <FaRegHeart/> </a>
         </div>
         </div>
     )}
