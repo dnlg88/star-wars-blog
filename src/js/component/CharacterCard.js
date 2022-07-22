@@ -3,20 +3,21 @@ import {FaRegHeart} from 'react-icons/fa';
 import { Context } from '../store/appContext';
 
 export const CharacterCard = ({elementName, url}) => {
-    const [characterInfo, SetCharacterInfo] = useState({})
     const {store, actions} = useContext(Context)
+    const [characterInfo, SetCharacterInfo] = useState([])
+
+    const getCharacterInfo = () =>{
+        fetch(url)
+        .then(resp => resp.json())
+        .then(data =>{ 
+            SetCharacterInfo(data.result.properties)
+        })
+        }
+
     useEffect(()=>{
         getCharacterInfo()
     },[])
 
-    const getCharacterInfo = ()=>{
-        fetch(url)
-        .then(resp => resp.json())
-		.then(data =>{ 
-            SetCharacterInfo(data.result.properties)})
-            console.log(characterInfo)
-        }
-        
     return (
         <div className="card" style={{width: "18rem"}}>
             <img src="..." className="card-img-top" alt="..." />

@@ -1,14 +1,15 @@
-import React, { useEffect, useContext} from 'react'
+import React, { useContext, useEffect} from 'react'
+import { Context } from '../store/appContext'
+import {Link} from "react-router-dom"
 
-import { Context } from '../store/appContext';
 
-export const Character = ({elementName, url}) => {
-    const {store, actions} = useContext(Context)
+export const PlanetCard = ({elementName, url}) => {
+    const { store, actions } = useContext(Context)
     
     useEffect(()=>{
-        actions.getCharacterInfo(url)
+        actions.getPlanetInfo(url)
     },[])
-        
+
     return (
     <div className="container-flex">
       <div className="container">
@@ -26,24 +27,24 @@ export const Character = ({elementName, url}) => {
           <div className="row mt-4">
               <div className="d-flex flex-row justify-content-between">
                       <div className="col-sm-2 d-flex danger flex-column">
-                          <div className="text-center text-danger">Height:</div>
-                          <div className="text-center"> {store.characterInfo.height} cm</div>
+                          <div className="text-center text-danger">Climate:</div>
+                          <div className="text-center"> {store.planetInfo.climate} </div>
                       </div>
                       <div className="col-sm-2 d-flex flex-column">
-                          <div className="text-center text-danger">Mass:</div>
-                          <div className="text-center">{store.characterInfo.mass} kg</div>
+                          <div className="text-center text-danger">Population:</div>
+                          <div className="text-center">{store.planetInfo.population} hab.</div>
                       </div>
                       <div className="col-sm-2 d-flex flex-column">
-                          <div className="text-center text-danger">Hair color:</div>
-                          <div className="text-center">{store.characterInfo.hair_color}</div>
+                          <div className="text-center text-danger">Terrain:</div>
+                          <div className="text-center">{store.planetInfo.terrain}</div>
                       </div>
                       <div className="col-sm-2 d-flex flex-column">
-                          <div className="text-center text-danger">Skin color:</div>
-                          <div className="text-center">{store.characterInfo.skin_color}</div>
+                          <div className="text-center text-danger">Orbital Period</div>
+                          <div className="text-center">{store.planetInfo.orbital_period} days</div>
                       </div>
                       <div className="col-sm-2 d-flex flex-column">
-                          <div className="text-center text-danger">Eye color:</div>
-                          <div className="text-center">{store.characterInfo.eye_color}</div>
+                          <div className="text-center text-danger">Rotation Period:</div>
+                          <div className="text-center">{store.planetInfo.rotation_period} hours</div>
                       </div>
                </div>
           </div>

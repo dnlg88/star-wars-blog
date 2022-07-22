@@ -4,7 +4,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			characters: [],
 			planets: [],
 			vehicles: [],
-			favorites: []
+			favorites: [],
+			characterInfo: [],
+			planetInfo: [],
+			vehicleInfo: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -61,15 +64,37 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			setFavorite: (name)=>{
 				let aux = [...getStore().favorites]
-				aux.push(name);
-				setStore({favorites: aux});
-				console.log(getStore().favorites)
+				let isRepeated = false
+				aux.map(element => element == name ? isRepeated = true: isRepeated = false)
+				if(!isRepeated){
+					aux.push(name);
+					setStore({favorites: aux});
+				}
 			},
 
 			deleteFromFavorites: (name) => {
 				const delFav = getStore().favorites.filter((fav) => fav !== name)
 				setStore({favorites: delFav})
-			}
+			},
+			getCharacterInfo: (url) => {
+				fetch(url)
+				.then(resp => resp.json())
+				.then(data =>{ 
+					setStore({characterInfo: data.result.properties})})
+					
+				},
+			getPlanetInfo: (url) => {
+				fetch(url)
+				.then(resp => resp.json())
+				.then(data =>{ 
+					setStore({planetInfo: data.result.properties})})
+				},
+			getVehicleInfo: (url) => {
+				fetch(url)
+				.then(resp => resp.json())
+				.then(data =>{ 
+					setStore({vehicleInfo: data.result.properties})})
+				}
 		}
 	};
 };

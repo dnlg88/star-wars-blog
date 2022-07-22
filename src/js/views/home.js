@@ -2,7 +2,6 @@ import React, {useContext} from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
 import { CharacterCard } from "../component/CharacterCard.js"
-import { Card } from "../component/Card.js"
 import { PlanetCard } from "../component/PlanetCard";
 import { VehicleCard } from "../component/VehicleCard";
 
