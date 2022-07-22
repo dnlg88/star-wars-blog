@@ -65,7 +65,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 			setFavorite: (name)=>{
 				let aux = [...getStore().favorites]
 				let isRepeated = false
-				aux.map(element => element == name ? isRepeated = true: isRepeated = false)
+				aux.map(element => {
+					if (element == name){
+						isRepeated = true
+					}
+				})
 				if(!isRepeated){
 					aux.push(name);
 					setStore({favorites: aux});
