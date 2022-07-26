@@ -1,25 +1,21 @@
-import React, { useEffect, useContext} from 'react'
+import React, { useContext} from 'react'
 
 import { Context } from '../store/appContext';
 
-export const Character = ({elementName, url}) => {
+export const Character = () => {
     const {store, actions} = useContext(Context)
-    
-    useEffect(()=>{
-        actions.getCharacterInfo(url)
-    },[])
         
     return (
     <div className="container-flex">
       <div className="container">
-        <h1 className="text-center text-danger my-3">{elementName}</h1>
+        <h1 className="text-center text-danger my-3">{store.characterInfo.name}</h1>
         <div className="row text-center my-5">
             <div className="col-md-5 ">
                 <img className='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvwOz3a33cWd_HESuK3jWUf28DZH0PhGvUng&usqp=CAU' src="" width="450px"/>
                 
             </div>
             <div className="col-md-7 py-2">
-                <p><strong>{elementName}</strong>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis nam molestiae consectetur commodi doloribus eveniet tempore incidunt! Consequatur nostrum consectetur exercitationem molestias, deleniti eligendi consequuntur architecto alias nobis minima numquam enim voluptates vel aliquam commodi maxime est fugiat molestiae ad?</p>
+                <p><strong>{store.characterInfo.name}</strong>&nbsp;Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis nam molestiae consectetur commodi doloribus eveniet tempore incidunt! Consequatur nostrum consectetur exercitationem molestias, deleniti eligendi consequuntur architecto alias nobis minima numquam enim voluptates vel aliquam commodi maxime est fugiat molestiae ad?</p>
             </div>
         </div>
     </div>

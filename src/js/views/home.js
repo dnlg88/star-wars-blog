@@ -15,7 +15,7 @@ export const Home = () => {
 			<div className="scroll">
 				<ul style={{display: "flex"}}>
 					{characters.map((element, i) => {
-					return <CharacterCard key={i} elementName={element.name} url={element.url} />	
+					return <CharacterCard key={i} elementName={element.name} url={element.url} type="character" />	
 				})}
 				</ul>
 			</div>
@@ -23,7 +23,7 @@ export const Home = () => {
 			<div className="scroll">	
 			<ul style={{display: "flex"}}>
 				{planets.map((element, i) => {
-					return <PlanetCard key={i} elementName={element.name} url={element.url} />	
+					return <PlanetCard key={i} elementName={element.name} url={element.url} type="planet"/>	
 				})}
 			</ul>
 			</div>
@@ -31,7 +31,7 @@ export const Home = () => {
 			<div className="scroll">
 				<ul style={{display: "flex"}}>
 					{vehicles.map((element, i) => {
-					return <VehicleCard key={i} elementName={element.name} url={element.url} />	
+					return <VehicleCard key={i} elementName={element.name} url={element.url} type="vehicle" />	
 				})}
 				</ul>
 			</div>

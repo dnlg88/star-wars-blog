@@ -1,35 +1,38 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Context } from '../store/appContext';
-
+import { Link } from 'react-router-dom';
 import {FaRegHeart} from 'react-icons/fa';
 
-export const PlanetCard = ({elementName, url}) => {
+export const PlanetCard = ({elementName, url, type}) => {
     const {store, actions} = useContext(Context)
-    const [planetInfo, SetPlanetInfo] = useState([])
+    const [cardPlanetInfo, setCardPlanetInfo] = useState([])
+    const [id, setId] = useState()
 
-    const getPlanetInfo = (url) =>{
+    const getCardPlanetInfo = () =>{
         fetch(url)
         .then(resp => resp.json())
         .then(data =>{ 
-            SetPlanetInfo(data.result.properties)})
+            setCardPlanetInfo(data.result.properties)
+            setId(data.result.uid)
+            })
         }
 
     useEffect(()=>{
-        getPlanetInfo()
+        getCardPlanetInfo()
     },[])
 
         return (<div className="card" style={{width: "18rem"}}>
-        <img src="..." className="card-img-top" alt="..." />
+        <img src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`} className="card-img-top" alt="..." />
         <div className="card-body">
           <h5 className="card-title">{elementName}</h5>
         </div>
-        <ul class="list-group list-group-flush">
-            <li className="list-group-item">Climate: {planetInfo.climate}</li>
-            <li className="list-group-item">Population: {planetInfo.population}</li>
-            <li className="list-group-item">Terrain: {planetInfo.terrain}</li>
+        <ul className="list-group list-group-flush">
+            <li className="list-group-item">Climate: {cardPlanetInfo.climate}</li>
+            <li className="list-group-item">Population: {cardPlanetInfo.population}</li>
+            <li className="list-group-item">Terrain: {cardPlanetInfo.terrain}</li>
         </ul>
         <div className="card-body">
-          <a href="#" className="btn btn-outline-primary">Learn more!</a>
+          <Link to={`/${type}/${cardPlanetInfo.name}`} onClick={()=>actions.getPlanetInfo(url)}><a href="#" className="btn btn-outline-primary">Learn more!</a></Link>
           <a href="#" className="btn btn-outline-warning" onClick={()=>actions.setFavorite(elementName)}> <FaRegHeart/> </a>
         </div>
         </div>

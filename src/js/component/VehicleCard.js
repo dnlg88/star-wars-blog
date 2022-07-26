@@ -1,34 +1,38 @@
 import React, { useEffect, useContext, useState } from 'react'
 import { Context } from '../store/appContext';
 import {FaRegHeart} from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
-export const VehicleCard = ({elementName, url}) => {
+export const VehicleCard = ({elementName, url, type}) => {
     const {store, actions} = useContext(Context)
-    const [vehicleInfo, SetVehicleInfo] = useState([])
+    const [vehicleCardInfo, setVehicleCardInfo] = useState([])
+    const [id, setId] = useState()
 
-    const getVehicleInfo= () => {
+    const getVehicleCardInfo= () => {
         fetch(url)
         .then(resp => resp.json())
         .then(data =>{ 
-            SetVehicleInfo(data.result.properties)})
+            setVehicleCardInfo(data.result.properties)
+            setId(data.result.uid)
+            })
         }
 
     useEffect(()=>{
-        getVehicleInfo()
+        getVehicleCardInfo()
     },[])
 
         return (<div className="card" style={{width: "18rem"}}>
-        <img src="..." className="card-img-top" alt="..." />
+        <img src={`https://starwars-visualguide.com/assets/img/vehicles/${id}.jpg`} className="card-img-top" alt="..." />
         <div className="card-body">
           <h5 className="card-title">{elementName}</h5>
         </div>
         <ul class="list-group list-group-flush">
-            <li className="list-group-item">Model: {vehicleInfo.model}</li>
-            <li className="list-group-item">Manufacturer: {vehicleInfo.manufacturer}</li>
-            <li className="list-group-item">Length: {vehicleInfo.length}</li>
+            <li className="list-group-item">Model: {vehicleCardInfo.model}</li>
+            <li className="list-group-item">Manufacturer: {vehicleCardInfo.manufacturer}</li>
+            <li className="list-group-item">Length: {vehicleCardInfo.length}</li>
         </ul>
         <div className="card-body">
-          <a href="#" className="btn btn-outline-primary">Learn more!</a>
+        <Link to={`/${type}/${vehicleCardInfo.name}`} onClick={()=>actions.getVehicleInfo(url)}><a href="#" className="btn btn-outline-primary">Learn more!</a></Link>
           <a href="#" className="btn btn-outline-warning" onClick={()=>actions.setFavorite(elementName)}> <FaRegHeart/> </a>
         </div>
         </div>

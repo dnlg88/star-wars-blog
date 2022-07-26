@@ -1,36 +1,39 @@
 import React, {useState, useEffect, useContext} from 'react'
 import {FaRegHeart} from 'react-icons/fa';
 import { Context } from '../store/appContext';
+import { Link } from 'react-router-dom';
 
-export const CharacterCard = ({elementName, url}) => {
+export const CharacterCard = ({elementName, url, type}) => {
     const {store, actions} = useContext(Context)
-    const [characterInfo, SetCharacterInfo] = useState([])
+    const [cardCharacterInfo, setCardCharacterInfo] = useState([])
+    const [id, setId] = useState()
 
-    const getCharacterInfo = () =>{
+    const getCardCharacterInfo = () =>{
         fetch(url)
         .then(resp => resp.json())
-        .then(data =>{ 
-            SetCharacterInfo(data.result.properties)
+        .then(data =>{
+            setCardCharacterInfo(data.result.properties)
+            setId(data.result.uid)
         })
         }
 
     useEffect(()=>{
-        getCharacterInfo()
+        getCardCharacterInfo()
     },[])
 
     return (
         <div className="card" style={{width: "18rem"}}>
-            <img src="..." className="card-img-top" alt="..." />
+            <img src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`} className="card-img-top" alt="..." />
             <div className="card-body">
             <h5 className="card-title">{elementName}</h5>
             </div>
             <ul class="list-group list-group-flush">
-                <li className="list-group-item">Gender: {characterInfo.gender}</li>
-                <li className="list-group-item">Eye color: {characterInfo.eye_color}</li>
-                <li className="list-group-item">Hair color: {characterInfo.hair_color}</li>
+                <li className="list-group-item">Gender: {cardCharacterInfo.gender}</li>
+                <li className="list-group-item">Eye color: {cardCharacterInfo.eye_color}</li>
+                <li className="list-group-item">Hair color: {cardCharacterInfo.hair_color}</li>
             </ul>
             <div className="card-body">
-                <a href="#" className="btn btn-outline-primary">Learn more!</a>
+                <Link to={`/${type}/${cardCharacterInfo.name}`} onClick={()=> actions.getCharacterInfo(url)}><a href="#" className="btn btn-outline-primary">Learn more!</a></Link>
                 <a href="#" className="btn btn-outline-warning" onClick={()=>actions.setFavorite(elementName)}> <FaRegHeart/> </a>
             </div>
         </div>

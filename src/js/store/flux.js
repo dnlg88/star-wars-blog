@@ -84,6 +84,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch(url)
 				.then(resp => resp.json())
 				.then(data =>{ 
+					console.log(data)
 					setStore({characterInfo: data.result.properties})})
 					
 				},
