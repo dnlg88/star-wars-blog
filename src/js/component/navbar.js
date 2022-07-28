@@ -25,7 +25,7 @@ export const Navbar = () => {
 					{}
 				</div>
 				</button>
-				<ul className="mt-2 border-2 dropdown-menu dropdown-menu-dark"
+				<ul className="mt-4 border-2 dropdown-menu dropdown-menu-dark"
 					aria-labelledby="dropdownMenu"> 
 					
 					{favorites.map(element =>{

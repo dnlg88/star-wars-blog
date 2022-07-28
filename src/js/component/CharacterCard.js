@@ -18,7 +18,7 @@ export const CharacterCard = ({elementName, url}) => {
         }
         
     return (
-        <div className="card" style={{width: "18rem"}}>
+        <div className="card " style={{width: "18rem"}}>
             <img src="..." className="card-img-top" alt="..." />
             <div className="card-body">
             <h5 className="card-title">{elementName}</h5>
