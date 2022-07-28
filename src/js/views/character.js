@@ -11,7 +11,7 @@ export const Character = () => {
         <h1 className="text-center text-danger my-3">{store.characterInfo.name}</h1>
         <div className="row text-center my-5">
             <div className="col-md-5 ">
-                <img className='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvwOz3a33cWd_HESuK3jWUf28DZH0PhGvUng&usqp=CAU' src="" width="450px"/>
+                <img className='' src={`https://starwars-visualguide.com/assets/img/characters/${store.id}.jpg`} width="450px"/>
                 
             </div>
             <div className="col-md-7 py-2">

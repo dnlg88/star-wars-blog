@@ -7,7 +7,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			favorites: [],
 			characterInfo: [],
 			planetInfo: [],
-			vehicleInfo: []
+			vehicleInfo: [],
+			id: 0
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -84,21 +85,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch(url)
 				.then(resp => resp.json())
 				.then(data =>{ 
-					console.log(data)
-					setStore({characterInfo: data.result.properties})})
-					
+					setStore({characterInfo: data.result.properties})
+					setStore({id:data.result.uid})
+					})
 				},
 			getPlanetInfo: (url) => {
 				fetch(url)
 				.then(resp => resp.json())
 				.then(data =>{ 
-					setStore({planetInfo: data.result.properties})})
+					setStore({planetInfo: data.result.properties})
+					setStore({id:data.result.uid})
+					})
 				},
 			getVehicleInfo: (url) => {
 				fetch(url)
 				.then(resp => resp.json())
 				.then(data =>{ 
-					setStore({vehicleInfo: data.result.properties})})
+					setStore({vehicleInfo: data.result.properties})
+					setStore({id:data.result.uid})
+					})
 				}
 		}
 	};
