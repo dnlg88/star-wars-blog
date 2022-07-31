@@ -33,7 +33,7 @@ export const VehicleCard = ({elementName, url, type}) => {
         </ul>
         <div className="card-body">
         <Link to={`/${type}/${vehicleCardInfo.name}`} onClick={()=>actions.getVehicleInfo(url)}><a href="#" className="btn btn-outline-primary">Learn more!</a></Link>
-          <a href="#" className="btn btn-outline-warning" onClick={()=>actions.setFavorite(elementName)}> <FaRegHeart/> </a>
+          <a href="#" className="btn btn-outline-warning float-end" onClick={()=>actions.setFavorite(vehicleCardInfo.name, type, vehicleCardInfo.url)}> <FaRegHeart/> </a>
         </div>
         </div>
     )}

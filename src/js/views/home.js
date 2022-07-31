@@ -23,7 +23,7 @@ export const Home = () => {
 			<div className="scroll">	
 			<ul style={{display: "flex"}}>
 				{planets.map((element, i) => {
-					return <PlanetCard key={i} elementName={element.name} url={element.url} type="planet"/>	
+					return <PlanetCard key={i} elementName={element.name} url={element.url} type="planet" uid={element.uid}/>	
 				})}
 			</ul>
 			</div>

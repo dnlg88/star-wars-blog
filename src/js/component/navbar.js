@@ -27,10 +27,13 @@ export const Navbar = () => {
 					aria-labelledby="dropdownMenu"> 
 					
 					{favorites.map(element =>{
-						return(<div className="listaFav">
-							<li>{element}</li>
-						<a className="trash" href="#" onClick={()=>actions.deleteFromFavorites(element)}>&nbsp;&nbsp;&nbsp;<FaRegTrashAlt/></a>
-						</div>
+						return(
+						<Link to={`/${element.type}/${element.name}`} onClick={()=> actions.getCharacterInfo(url)}> 
+							<div className="listaFav">
+								<li className="elementoLista">{element.name}</li>
+								<a className="trash float-end" href="#" onClick={()=>actions.deleteFromFavorites(element)}>&nbsp;&nbsp;&nbsp;<FaRegTrashAlt/></a>
+							</div>
+						</Link>
 						) 
 					})}
 				</ul>

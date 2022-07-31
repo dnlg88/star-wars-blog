@@ -63,16 +63,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().getVehicles();
 				console.log(getStore())
 			},
-			setFavorite: (name)=>{
+			setFavorite: (name, type, url)=>{
 				let aux = [...getStore().favorites]
 				let isRepeated = false
 				aux.map(element => {
-					if (element == name){
+					if (element.name == name){
 						isRepeated = true
 					}
 				})
 				if(!isRepeated){
-					aux.push(name);
+					aux.push({name: name, type:type, url});
 					setStore({favorites: aux});
 				}
 			},

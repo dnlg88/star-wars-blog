@@ -34,7 +34,7 @@ export const CharacterCard = ({elementName, url, type}) => {
             </ul>
             <div className="card-body">
                 <Link to={`/${type}/${cardCharacterInfo.name}`} onClick={()=> actions.getCharacterInfo(url)}><a href="#" className="btn btn-outline-primary">Learn more!</a></Link>
-                <a href="#" className="btn btn-outline-warning" onClick={()=>actions.setFavorite(elementName)}> <FaRegHeart/> </a>
+                <a href="#" className="btn btn-outline-warning float-end" onClick={()=>actions.setFavorite(cardCharacterInfo.name, type, cardCharacterInfo.url)}> <FaRegHeart/> </a>
             </div>
         </div>
     )}

@@ -15,7 +15,12 @@
     color: red;
     margin: 5% 0;
 }
-.card-body{
-    display: flex;
-    justify-content: space-between;
+
+.elementoLista {
+    text-decoration: none;
 }
+
+/* img {
+    height: 100px;
+    object-fit: contain;
+} */
