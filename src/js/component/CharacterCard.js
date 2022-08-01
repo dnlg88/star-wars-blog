@@ -23,9 +23,11 @@ export const CharacterCard = ({elementName, url, type}) => {
 
     return (
         <div className="card" style={{width: "18rem"}}>
-            <img src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`} className="card-img-top" alt="..." />
-            <div className="card-body">
-            <h5 className="card-title">{elementName}</h5>
+            <img id="characterImg" src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`} 
+            className="card-img-top" 
+            alt="card-image" />
+            <div className="card-body d-flex flex-column justify-content-between">
+            <h5 className="card-title text-center mb-3">{elementName}</h5>
             </div>
             <ul class="list-group list-group-flush">
                 <li className="list-group-item">Gender: {cardCharacterInfo.gender}</li>
@@ -37,4 +39,7 @@ export const CharacterCard = ({elementName, url, type}) => {
                 <a href="#" className="btn btn-outline-warning float-end" onClick={()=>actions.setFavorite(cardCharacterInfo.name, type, cardCharacterInfo.url)}> <FaRegHeart/> </a>
             </div>
         </div>
+
+
     )}
+

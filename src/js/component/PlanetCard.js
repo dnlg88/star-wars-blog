@@ -34,7 +34,7 @@ export const PlanetCard = ({elementName, url, type, uid}) => {
 
         return (
         <div className="card" style={{width: "18rem"}}>
-            <img src={img} className="card-img-top"/>
+            <img id="planetImg"src={img} className="card-img-top"/>
             <div className="card-body">
             <h5 className="card-title">{elementName}</h5>
             </div>
