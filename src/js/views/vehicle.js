@@ -15,7 +15,7 @@ export const Vehicle = () => {
                         <img className='' src={`https://starwars-visualguide.com/assets/img/planets/${store.id}.jpg`} width="450px"/>
                         
                     </div>
-                    <div className="col-md-7 py-2">
+                    <div className="col-md-7 py-2 text-light">
                         <p><strong>{store.vehicleInfo.name}</strong>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis nam molestiae consectetur commodi doloribus eveniet tempore incidunt! Consequatur nostrum consectetur exercitationem molestias, deleniti eligendi consequuntur architecto alias nobis minima numquam enim voluptates vel aliquam commodi maxime est fugiat molestiae ad?</p>
                     </div>
                 </div>
@@ -24,23 +24,23 @@ export const Vehicle = () => {
                       <div className="d-flex flex-row justify-content-between">
                               <div className="col-sm-2 d-flex danger flex-column">
                                   <div className="text-center text-danger">Model:</div>
-                                  <div className="text-center"> { store.vehicleInfo.model }</div>
+                                  <div className="text-center text-light"> { store.vehicleInfo.model }</div>
                               </div>
                               <div className="col-sm-2 d-flex flex-column">
                                   <div className="text-center text-danger">Manufacturer:</div>
-                                  <div className="text-center">{ store.vehicleInfo.manufacturer }</div>
+                                  <div className="text-center text-light">{ store.vehicleInfo.manufacturer }</div>
                               </div>
                               <div className="col-sm-2 d-flex flex-column">
                                   <div className="text-center text-danger">Length:</div>
-                                  <div className="text-center">{ store.vehicleInfo.length }</div>
+                                  <div className="text-center text-light">{ store.vehicleInfo.length }</div>
                               </div>
                               <div className="col-sm-2 d-flex flex-column">
                                   <div className="text-center text-danger">Crew:</div>
-                                  <div className="text-center">{ store.vehicleInfo.crew }</div>
+                                  <div className="text-center text-light">{ store.vehicleInfo.crew }</div>
                               </div>
                               <div className="col-sm-2 d-flex flex-column">
                                   <div className="text-center text-danger">Passengers:</div>
-                                  <div className="text-center">{ store.vehicleInfo.passengers }</div>
+                                  <div className="text-center text-light">{ store.vehicleInfo.passengers }</div>
                               </div>
                        </div>
                   </div>

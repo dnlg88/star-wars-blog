@@ -15,7 +15,7 @@ export const Character = () => {
                 
             </div>
             <div className="col-md-7 py-2 text-light">
-                <p><strong>{store.characterInfo.name}</strong>&nbsp;Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis nam molestiae consectetur commodi doloribus eveniet tempore incidunt! Consequatur nostrum consectetur exercitationem molestias, deleniti eligendi consequuntur architecto alias nobis minima numquam enim voluptates vel aliquam commodi maxime est fugiat molestiae ad?</p>
+                <p><strong>{store.characterInfo.name}</strong>&nbsp; Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis nam molestiae consectetur commodi doloribus eveniet tempore incidunt! Consequatur nostrum consectetur exercitationem molestias, deleniti eligendi consequuntur architecto alias nobis minima numquam enim voluptates vel aliquam commodi maxime est fugiat molestiae ad?</p>
             </div>
         </div>
     </div>

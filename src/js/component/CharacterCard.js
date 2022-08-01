@@ -22,7 +22,7 @@ export const CharacterCard = ({elementName, url, type}) => {
     },[])
 
     return (
-        <div className="card" style={{width: "18rem"}}>
+        <div className="card" style={{width: "14rem"}}>
             <img id="characterImg" src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`} 
             className="card-img-top" 
             alt="card-image" />

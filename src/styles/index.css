@@ -14,9 +14,42 @@
     background-size: auto;
   
   }*/
+
+
+
+
+
   body {
     background: url("https://images.unsplash.com/photo-1608754482805-6f630357358b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3BhY2UlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fA%3D%3D&w=1000&q=80") ;
     background-size: cover;
     resize: both;
     overflow: scroll;
   }
+
+  
+  
+  /*
+  #planetImg {
+    font-size:14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    
+  }
+
+  #vehicleImg {
+    font-size:14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+   
+  }
+
+  #characterImg {
+    font-size:14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    
+  }
+  */
