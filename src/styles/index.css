@@ -9,11 +9,7 @@
     font-family: 'Londrina Outline', sans-serif;
     font-size: 60px;
 }
-/*body {
-    background-image: url("https://img2.goodfon.com/wallpaper/nbig/6/d7/solnce-zvezdy-stratosfera.jpg") ; 
-    background-size: auto;
-  
-  }*/
+
 
 
 
@@ -26,30 +22,11 @@
     overflow: scroll;
   }
 
-  
-  
-  /*
   #planetImg {
-    font-size:14px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    
-  }
-
-  #vehicleImg {
-    font-size:14px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-   
-  }
-
-  #characterImg {
-    font-size:14px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    
-  }
-  */
+    /* height: 100%;  Cambiar uno height por otro y eliminar width....*/
+    height: 400px;
+    width: 400px ;
+    background-size: cover;
+}
+  
+  

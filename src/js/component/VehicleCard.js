@@ -24,12 +24,12 @@ export const VehicleCard = ({elementName, url, type}) => {
         return (<div className="card" style={{width: "18rem"}}>
         <img id="vehicleImg"src={`https://starwars-visualguide.com/assets/img/vehicles/${id}.jpg`} className="card-img-top" alt="..." />
         <div className="card-body">
-          <h5 className="card-title">{elementName}</h5>
+          <h5 className="card-title text-truncate">{elementName}</h5>
         </div>
         <ul class="list-group list-group-flush">
-            <li className="list-group-item">Model: {vehicleCardInfo.model}</li>
-            <li className="list-group-item">Manufacturer: {vehicleCardInfo.manufacturer}</li>
-            <li className="list-group-item">Length: {vehicleCardInfo.length}</li>
+            <li className="list-group-item text-muted text-truncate">Model: {vehicleCardInfo.model}</li>
+            <li className="list-group-item text-muted text-truncate">Manufacturer: {vehicleCardInfo.manufacturer}</li>
+            <li className="list-group-item text-muted text-truncate">Length: {vehicleCardInfo.length}</li>
         </ul>
         <div className="card-body">
         <Link to={`/${type}/${vehicleCardInfo.name}`} onClick={()=>actions.getVehicleInfo(url)}><a href="#" className="btn btn-outline-primary">Learn more!</a></Link>

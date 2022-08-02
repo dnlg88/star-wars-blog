@@ -22,7 +22,7 @@ export const CharacterCard = ({elementName, url, type}) => {
     },[])
 
     return (
-        <div className="card" style={{width: "14rem"}}>
+        <div className="card" style={{width: "18rem"}}>
             <img id="characterImg" src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`} 
             className="card-img-top" 
             alt="card-image" />
@@ -30,9 +30,9 @@ export const CharacterCard = ({elementName, url, type}) => {
             <h5 className="card-title text-center mb-3">{elementName}</h5>
             </div>
             <ul class="list-group list-group-flush">
-                <li className="list-group-item">Gender: {cardCharacterInfo.gender}</li>
-                <li className="list-group-item">Eye color: {cardCharacterInfo.eye_color}</li>
-                <li className="list-group-item">Hair color: {cardCharacterInfo.hair_color}</li>
+                <li className="list-group-item text-muted text-truncate">Gender: {cardCharacterInfo.gender}</li>
+                <li className="list-group-item text-muted text-truncate">Eye color: {cardCharacterInfo.eye_color}</li>
+                <li className="list-group-item text-muted text-truncate">Hair color: {cardCharacterInfo.hair_color}</li>
             </ul>
             <div className="card-body">
                 <Link to={`/${type}/${cardCharacterInfo.name}`} onClick={()=> actions.getCharacterInfo(url)}><a href="#" className="btn btn-outline-primary">Learn more!</a></Link>
